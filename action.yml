@@ -1,0 +1,9 @@
+name: 'Build & Deploy with Jekyll'
+description: '🧪 Build and deploy your Jekyll site to GitHub Pages.'
+author: 'victoriadrake'
+branding:
+  icon: 'arrow-up-circle'  
+  color: 'red'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
