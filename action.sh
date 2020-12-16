@@ -7,11 +7,16 @@ bundle exec jekyll -v || exit 1
 
 echo '🧹 Clean site'
 if [ -d "docs" ]; then
+    # preserve CNAME file before deleting
+    # see https://github.com/victoriadrake/jekyll-cd/issues/2
+    if [ -f "docs/CNAME" ]; then cp docs/CNAME CNAME; fi
     rm -rf docs/*
 fi
 
 echo '🔨 Build site'
 bundle exec jekyll build -d docs
+# restore CNAME file
+if [ -f "CNAME" ]; then cp CNAME docs/CNAME; fi
 
 echo '🧪 Deploy build'
 git config user.name "${GITHUB_ACTOR}"
