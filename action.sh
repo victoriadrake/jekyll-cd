@@ -12,6 +12,7 @@ fi
 
 echo '🔨 Build site'
 bundle exec jekyll build -d docs
+rm -rf .jekyll-cache
 
 echo '🧪 Deploy build'
 git config user.name "${GITHUB_ACTOR}"
