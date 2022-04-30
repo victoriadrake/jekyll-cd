@@ -17,6 +17,7 @@ rm -rf .jekyll-cache
 echo '🧪 Deploy build'
 git config user.name "${GITHUB_ACTOR}"
 git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+git config --global --add safe.directory /github/workspace
 git add .
 git commit -am "🧪 Deploy with ${GITHUB_WORKFLOW}"
 git push --all -f https://${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
